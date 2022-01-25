@@ -28,6 +28,7 @@
 #define	LIGHTBULB_NOTIFY_BRIGHTNESS_MASK	0X02
 #define	LIGHTBULB_NOTIFY_COLOR_TEMP_MASK	0X04
 #define LIGHTBULB_NOTIFY_RGB_MASK			0X08
+<<<<<<< HEAD
 #define LIGHTBULB_NOTIFY_HUE_MASK			0X10
 #define LIGHTBULB_NOTIFY_SATURATION_MASK	0X20
 #define LIGHTBULB_NOTIFY_A1_MASK			0X40
@@ -53,6 +54,19 @@
 #define SUB_TYPE_SWITCH_KEY						((uint16_t)0x6232)/*<86开关>*/
 #define SUB_TYPE_SMART_OUTLET					((uint16_t)0x6234)/*<智能插座>*/
 #define SUB_TYPE_CURTAIN						((uint16_t)0x6230)/*<窗帘>*/
+=======
+#define LIGHTBULB_NOTIFY_WY_MODE_MASK		0X10
+
+/*<子设备ID中高两位字节表示的类型>*/
+#define SUB_TYPE_SINGLE_LIGHTBULB	((uint16_t)0x3035)/*<单色灯>*/
+#define SUB_TYPE_DOUBLE_LIGHTBULB	((uint16_t)0x3031)/*<双色灯>*/
+#define SUB_TYPE_RGB_LIGHTBULB		((uint16_t)0x3033)/*<RGB灯>*/
+#define SUB_TYPE_WYRGB_LIGHTBULB	((uint16_t)0x3038)/*<WYRGB灯>*/
+#define SUB_TYPE_SW_CONTROLLER		((uint16_t)0x6231)/*<通断器>*/
+#define SUB_TYPE_SWITCH_KEY			((uint16_t)0x6232)/*<86开关>*/
+#define SUB_TYPE_SMART_OUTLET		((uint16_t)0x6234)/*<智能插座>*/
+#define SUB_TYPE_CURTAIN			((uint16_t)0x6230)/*<窗帘>*/
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 //#define SUB_TYPE_GAUZE				((uint16_t)0x6231)/*<窗纱>*/
 
 
@@ -80,8 +94,13 @@
 
 /*-----------窗帘------------*/
 #define DPID_CURTAIN_SW				((uint8_t)1)
+<<<<<<< HEAD
 #define DPID_CURTAIN_CURRENT_STATE	((uint8_t)3)
 #define DPID_CURTAIN_TARGET_STATE	((uint8_t)2)
+=======
+#define DPID_CURTAIN_CURRENT_STATE	((uint8_t)2)
+#define DPID_CURTAIN_TARGET_STATE	((uint8_t)3)
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 
 /*-----------照度------------*/
 #define DPID_BRINGHT_VALUE 			((uint8_t)2) //环境照度上报-数值-【0-20000】
@@ -117,6 +136,7 @@
 #define DPTYPE_BITMAP			((uint8_t)5)
 
 #pragma pack(1)
+<<<<<<< HEAD
 /*< HAP_DEVICE_TYPE_e 子设备类型>*/
 typedef enum{
 	HAP_TYPE_SINGLE_LIGHTBULB_E = 1,			/*<单色灯>*/
@@ -149,6 +169,40 @@ typedef enum{
 	HAP_TYPE_SCENE_5KEY_E,						/*<5键情景面板>*/
 	HAP_TYPE_SCENE_6KEY_E,						/*<6键情景面板>*/
 }HAP_DEVICE_TYPE_e;
+=======
+/*<子设备类型>*/
+typedef enum{
+	MESH_SUB_TYPE_SINGLE_LIGHTBULB_E = 1,			/*<单色灯>*/
+	MESH_SUB_TYPE_DOUBLE_LIGHTBULB_E,				/*<双色灯>*/
+	MESH_SUB_TYPE_RGB_LIGHTBULB_E,					/*<RGB灯>*/
+	MESH_SUB_TYPE_WYRGB_LIGHTBULB_E,				/*<WYRGB灯>*/
+	MESH_SUB_TYPE_DOUBLE_PLUS_LIGHTBULB_E,			/*<双色灯+辅灯>*/
+	MESH_SUB_TYPE_SINGLE_PLUS_LIGHTBULB_E,			/*<单色灯+辅灯>*/
+	MESH_SUB_TYPE_WRGB_LIGHTBULB_E,					/*<WRGB灯>*/
+	MESH_SUB_TYPE_SW_CONTROLLER_E, 					/*<开关控制器/通断器>*/
+	MESH_SUB_TYPE_CLASSROOM_SINGLE_LIGHTBULB_E,		/*<教室单色灯>*/
+	MESH_SUB_TYPE_ILLUMINANCE_SENSOR_E, 			/*<照度传感器>*/
+	MESH_SUB_TYPE_ELECTRIC_CURTAINS_E, 				/*<电动窗帘>*/
+	MESH_SUB_TYPE_SWITCH_1KEY_E,					/*<1开开关>*/
+	MESH_SUB_TYPE_SWITCH_2KEY_E,					/*<2开开关>*/
+	MESH_SUB_TYPE_SWITCH_3KEY_E,					/*<3开开关>*/
+	MESH_SUB_TYPE_SWITCH_4KEY_E,					/*<4开开关>*/
+	MESH_SUB_TYPE_AUDIBLE_VISUAL_ALARM_E,			/*<声光报警器>*/
+	MESH_SUB_TYPE_ELECTRIC_VALVE_E,					/*<电动阀门>*/
+	MESH_SUB_TYPE_SMART_OUTLET_E, 					/*<智能插座>*/
+	MESH_SUB_TYPE_MAGNETIC_DOOR_SENSOR_E,			/*<门磁传感器>*/
+	MESH_SUB_TYPE_IR_SENSOR_E,						/*<红外传感器&门锁?>*/
+	MESH_SUB_TYPE_UNDER_WATER_SENSOR_E,				/*<水浸传感器>*/
+	MESH_SUB_TYPE_SMOKE_SENSOR_E,					/*<烟雾传感器>*/
+	MESH_SUB_TYPE_GAS_SENSOR_E,						/*<燃气传感器>*/
+	MESH_SUB_TYPE_SCENE_1KEY_E,						/*<1键情景面板>*/
+	MESH_SUB_TYPE_SCENE_2KEY_E, 					/*<2键情景面板>*/
+	MESH_SUB_TYPE_SCENE_3KEY_E,						/*<3键情景面板>*/
+	MESH_SUB_TYPE_SCENE_4KEY_E, 					/*<4键情景面板>*/
+	MESH_SUB_TYPE_SCENE_5KEY_E,						/*<5键情景面板>*/
+	MESH_SUB_TYPE_SCENE_6KEY_E,						/*<6键情景面板>*/
+}MESH_SUB_DEVICE_TYPE_e;
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 
 typedef struct{
 	uint16_t task_pending_flag;//任务挂起标志位@refer MESH_GW_TASK_MASK	
@@ -167,7 +221,11 @@ typedef struct{
 typedef struct{
 	hap_char_t* hap_char_on_handle;					/*<characteristic 'on'的句柄>*/
 	hap_char_t* hap_char_brightness_handle;			/*<characteristic 'brightness'的句柄>*/
+<<<<<<< HEAD
 	hap_char_t* hap_char_saturation_handle;			/*<characteristic 'saturation'的句柄>*/
+=======
+	hap_char_t* hap_char_aturation_handle;			/*<characteristic 'aturation'的句柄>*/
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 	hap_char_t* hap_char_hue_handle;				/*<characteristic 'hue'的句柄>*/
 	hap_char_t* hap_char_color_temp_handle;			/*<characteristic 'color temperature'的句柄>*/
 	hap_char_t* hap_char_auxiliary1_on_handle;		/*<characteristic 'on'的句柄,对应辅灯1的开关状态>*/
@@ -229,9 +287,15 @@ typedef union
 
 /*mesh网关下子设备信息*/
 typedef struct{
+<<<<<<< HEAD
 	HAP_DEVICE_TYPE_e sub_type;/*<子设备类型>*/
 	uint8_t sub_register_id;/*<子设备注册id,用于HAP命名编号>*/
 	uint8_t sub_id[11];/*<子设备id-10bytes + serviec id-1byte>*/
+=======
+	MESH_SUB_DEVICE_TYPE_e sub_type;/*<子设备类型>*/
+	uint8_t sub_register_id;/*<子设备注册id,用于HAP命名编号>*/
+	uint8_t sub_id[10];/*<子设备id>*/
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 	sub_device_t sub_device;/*<子设备特征值>*/
 	uint8_t task_pending_f;
 	uint8_t is_notify_f;

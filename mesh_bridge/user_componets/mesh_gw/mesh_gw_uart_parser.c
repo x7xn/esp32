@@ -82,10 +82,17 @@ uint16_t mesh_gw_uart_data_parsing(uint8_t* source_data,uint16_t data_len)
 	}
 
 	//数据长度判断
+<<<<<<< HEAD
 	if((temp_data_len + 7) > data_len)
 	{
 		
 		ESP_LOGI(TAG,"data_len error%d-%d\r\n",temp_data_len+7,data_len);
+=======
+	if((temp_data_len + 7) < data_len)
+	{
+		
+		ESP_LOGI(TAG,"data_len error\r\n");
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 		return 5;
 	}
 

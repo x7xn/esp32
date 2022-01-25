@@ -150,7 +150,11 @@ void uart1_rx_task_perform()
 	//uint8_t* rx_data = (uint8_t*) malloc(UART1_RX1_BUF_SIZE + 1);       //分配内存，用于串口接收
 	uint8_t rx_data[UART1_RX1_BUF_SIZE+1] = {0};
 	uint16_t rxi = 0;
+<<<<<<< HEAD
 	//uint32_t rx_len = 0;
+=======
+	uint32_t rx_len = 0;
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 	uint32_t offset = 0;
 
 	//while (1)
@@ -161,10 +165,19 @@ void uart1_rx_task_perform()
 		
 		if (rxBytes > 0)
 		{
+<<<<<<< HEAD
 			//uart_write_bytes(UART_NUM_1,(const char *) rx_data, rxBytes);
 			//更新通信时间
 			xUartCommunicationTickCount = xTaskGetTickCount();
 			offset = 0;
+=======
+			
+			//uart_write_bytes(UART_NUM_1,(const char *) rx_data, rxBytes);
+			//更新通信时间
+			xUartCommunicationTickCount = xTaskGetTickCount();
+			//rx_len  = rxBytes;
+			//offset = 0;
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 
 			//rx_data[rxBytes] = 0;//在串口接收的数据增加结束符
 
@@ -182,9 +195,15 @@ void uart1_rx_task_perform()
 			while(1)
 			{
 				//offset += uart1_rx_data(rx_len,&rx_data[offset]);
+<<<<<<< HEAD
 				offset += mesh_gw_uart_data_parsing(&rx_data[offset], rxBytes-offset);
 				
 				if(offset >= rxBytes)break;
+=======
+				offset += mesh_gw_uart_data_parsing(&rx_data[offset], rx_len);
+				
+				if(offset >= rx_len)break;
+>>>>>>> 0f8aba836d2dbd47d1beee00e977a2c24b71dcd2
 			}
 
 			
